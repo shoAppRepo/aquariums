@@ -1,0 +1,130 @@
+/*
+ *基本設定
+ */
+body{
+  background-color:red;
+}
+footer {
+  padding: 50px 0;
+  background-color: #fafaf3;
+  text-align: center;
+}
+
+/*
+ *ボタン装飾
+ */
+.btn-flat-border {
+  display: inline-block;
+  padding: 0.5em 1em;
+  font-size:30px;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #ffffff;
+  background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #5e7fca;
+}
+
+.btn-flat-border:active{
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+/*
+ *メニューと画像(大きめ)の設定
+ */
+ 
+.top {
+  /* 子要素でposition:absoluteを使うため必要 */
+  position: relative;
+}
+
+.top_image{
+  position: absolute;
+  left: 0;
+  top:55px;
+
+  /* 背景画像を画面いっぱいに置く */
+  background-color: #fff;
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+  
+  /*透明度調整 */
+  opacity: 0.5;
+
+}
+
+/*
+ *真ん中のコンテンツ
+ */
+.main{
+  margin-top:1000px;
+  margin-bottom: 100px;
+}
+
+/*
+ *真ん中のコンテンツ
+ */
+.auth{
+  margin-top:100px;
+  margin-bottom: 100px;
+}
+.top__text-box {
+  /* 上下中央に置く */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+  width: 100%;
+
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 100;
+}
+
+.top__title {
+  margin-bottom: 10px;
+  font-size: 4rem;
+  line-height: 77px;
+  letter-spacing: 4px;
+}
+
+.top__catchphrase {
+  font-size: 15px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.text-second{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size:30px;
+  color: #6cb4e4;
+  text-align: center;
+  padding: 0.25em;
+  border-top: solid 2px #6cb4e4;
+  border-bottom: solid 2px #6cb4e4;
+  background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+  background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
+
+/*
+ *水族館の紹介写真/カルーセル
+ */
+ .VueCarousel-slide {
+  position: relative;
+  min-height: 300px;
+  text-align: center;
+  font-size: 24px;
+  background-color: skyblue;
+  color: #fff;
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
