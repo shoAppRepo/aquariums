@@ -1,14 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
 <div class="auth">
 <div class="container">
 <div class="row d-flex justify-content-between">
-    <div class="card col-sm-5 mt-2">
+    <div class="card col-md-5 mt-2">
         <div class="card-header">
-            <h3 class="card-title">{{ $aquarium->name }}</h3>
+            <h3 class="card-title">{{ $aquarium->name }}<span>{{ $avg_star }}</span></h3>
             @if($avg_star == 1)
             <div class="d-flex justify-content-end">
             <i class="fas fa-star"></i>
@@ -34,26 +32,24 @@
             @endif
         </div>
         <div class="card-body">
-            <div id="picture">
             @if(count($images))
-                <carousel
-                    :per-page="1"
-                >
+            <div id="picture">
+                <carousel>
                     @foreach ($images as $image)
                     <slide><span class="label"><img src="{{ $image->image_path }}"></span></slide>
                     @endforeach
                 </carousel>
-            @else
             </div>
-            <div class="mx-auto" style="width:20rem;height:20rem;background-color:#CCFFFF;text-align:center">
+            @else
+            <div style="width:20rem;height:20rem;background-color:#CCFFFF;text-align:center">
                 <p style="font-size:30px">No Image</p>
             </div>
             @endif
-            <p class="mt-3">{{ $aquarium->content }}</p>
+            <p>{{ $aquarium->content }}</p>
         </div>
     </div>
- </div>   
-    <div class="col-sm-4 mt-2">
+    
+    <div class="col-md-4 mt-2">
         <table class="table table-bordered ">
             <tr>
                 <td>営業時間</td>
@@ -97,16 +93,14 @@
     @endif
 </div>
 
-
 <div class="row">
-    <div class="col-sm-8 mx-auto mt-3" style="max-width: 100%;">
+    <div class="col-sm-8 mx-auto mt-3">
         @include('commons.navtabs', ['aquarium' => $aquarium])
-        @if (count($reviews) > 0)
-            @include('commons.reviews',['reviews'=>$reviews])
+        @if (count($recommendations) > 0)
+            @include('commons.recommendations',['recommendations' => $recommendations])
         @endif
     </div>
 </div>
-
 </div>
 </div>
 

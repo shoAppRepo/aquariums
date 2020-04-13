@@ -41,6 +41,7 @@ Route::group(['prefix'=>'aquariums/{id}'],function(){
     Route::get('recommendations','AquariaController@recommendations')->name('aquariums.recommendations');
     Route::get('edit','AquariaController@edit')->name('aquariums.edit');
     Route::delete('delete_profile','AquariaController@delete_profile')->name('delete_profile');
+    Route::delete('delete_aquarium','AquariaController@delete_aquarium')->name('delete_aquarium');
     Route::post('update','AquariaController@update')->name('aquariums.update');
     Route::post('upload','AquariaController@upload')->name('aquariums.upload');
     Route::get('create','AquariaController@create')->name('aquariums.create');

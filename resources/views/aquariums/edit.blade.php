@@ -2,18 +2,15 @@
 
 @section('content')
 <div class="auth">
-<div class="row">
-<div class="col-sm-2">
+<div class="container">
+<div class="mx-auto col-sm-2">
 {!! Form::open(['route' => ['aquariums.upload',$aquarium->id],'method' => 'post','enctype'=>"multipart/form-data"]) !!}
-    <div class="form-group">
             {!! Form::label('file', '画像', ['class' => 'control-label']) !!}
-            {!! Form::file('file') !!}
-    </div>
-    <div class="form-group">
-        {!! Form::submit('アップロード', ['class' => 'btn btn-primary my-2']) !!}
-    </div>
+            {!! Form::file('file',['accept'=>'.jpeg,.jpg,.png,gif']) !!}
+            {!! Form::submit('アップロード', ['class' => 'btn btn-primary my-2']) !!}
+{!! Form::close() !!}
 </div>
-<div class="offset-sm-2 col-sm-6">
+<div class="mx-auto col-sm-6">
 {!! Form::model($aquarium, ['route' => ['aquariums.update',$aquarium->id]]) !!}
         
                 <div class="form-group">
@@ -39,7 +36,8 @@
                 <div class="form-group">
                     {!! Form::label('show', 'ショー:') !!}
                     {!! Form::text('show', $aquarium->show, ['class' => 'form-control']) !!}
-                </div><div class="form-group">
+                </div>
+                <div class="form-group">
                     {!! Form::label('content', '紹介文:') !!}
                     {!! Form::text('content', $aquarium->content, ['class' => 'form-control','rows' => '5']) !!}
                     <!--入力フォームのサイズを変えたい-->
@@ -47,15 +45,15 @@
         
                 {!! Form::submit('更新', ['class' => 'btn btn-primary']) !!}
         
-            {!! Form::close() !!}
+{!! Form::close() !!}
 </div>
-<div class="my-5" style="display:flex">
+<div class="my-5 d-flex justify-content-between">
     @if($images)
     @foreach ($images as $image)
     <div >
     <img src="{{ $image->image_path }}">
     {!! Form::open(['route' => ['delete_profile',$aquarium->id], 'method' => 'delete']) !!}
-        {!! Form::submit('Delete', ['class' => "btn btn-danger btn-sm ml-1"]) !!}
+        {!! Form::submit('Delete', ['class' => "btn btn-danger btn-sm mt-2"]) !!}
     {!! Form::close() !!}
     </div>
     @endforeach

@@ -29,8 +29,9 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">メニュー</a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <!--<li class="dropdown-item">{!! link_to_route('users.show','MyPage',['id'=>Auth::id()]) !!}</li>-->
-                            <li class="dropdown-divider"></li>
                             <li class="dropdown-item">{!! link_to_route('logout.get','Logout') !!}</li>
+                            <li class="dropdown-divider"></li>
+                            <li class="dropdown-item">{!! link_to_route('user.delete','退会') !!}</li>
                         </ul>
                     </li>
                     @endif

@@ -46,7 +46,7 @@ footer {
   left: 0;
   top:55px;
 
-  /* 背景画像を画面いっぱいに置く */
+  /* 背景画像を画面いっぱいに置
   background-color: #fff;
   background-image: none;
   background-size: cover;
@@ -81,7 +81,6 @@ footer {
   transform: translateY(-50%);
   text-align: center;
   width: 100%;
-
   font-family: 'Permanent Marker', cursive;
   font-weight: 100;
 }
@@ -99,6 +98,9 @@ footer {
 }
 
 .text-second{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-size:30px;
   color: #6cb4e4;
@@ -113,18 +115,20 @@ footer {
 /*
  *水族館の紹介写真/カルーセル
  */
- .VueCarousel-slide {
-  position: relative;
-  min-height: 300px;
-  text-align: center;
-  font-size: 24px;
-  background-color: skyblue;
-  color: #fff;
+.VueCarousel-slide {
+  display:flex;
+ align-items:center;
+ justify-content:center;
 }
 
-.label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* 回転するアニメーション */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }

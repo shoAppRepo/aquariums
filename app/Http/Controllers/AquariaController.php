@@ -10,13 +10,12 @@ use App\Image;
 //画像リサイズ用↓
 use InterventionImage;
 
-
 class AquariaController extends Controller
 {
     //水族館取得
     public function index($id){
         $area=Area::find($id);
-        $aquariums=$area->aquariums()->orderBy('created_at','desc')->paginate(10);
+        $aquariums=$area->aquariums()->orderBy('created_at','desc')->paginate(12);
 
         return view('aquariums.index',compact('aquariums'));
     }
@@ -25,36 +24,47 @@ class AquariaController extends Controller
         //aquariumsのレビュー取得
         $aquarium = Aquarium::find($id);
         $reviews = $aquarium->reviews()->orderBy('created_at','desc')->paginate(3);
+        $avg_star = floor(\App\Review::avg('star'));
         $images = $aquarium->images()->get();
+        $stars = $reviews->pluck('star');
+        $avg_star = $stars->avg();
         
         
         $data=[
             'aquarium'=>$aquarium,
             'reviews'=>$reviews,
+            'images' => $images,
+            'avg_star' => $avg_star,
         ];
         
         $data += $this->counts($aquarium);
         
         
-        return view('aquariums.show',$data,['images'=>$images]);
+        return view('aquariums.show',$data);
         
     }
     
     public function recommendations($id){
         //aquariumsのおすすめ生物取得
         $aquarium = Aquarium::find($id);
+        $reviews = $aquarium->reviews()->orderBy('created_at','desc')->paginate(3);
         $recommendations = $aquarium->recommendations()->orderBy('created_at','desc')->paginate(3);
-        $image = $aquarium->image;
+        $images = $aquarium->images()->get();
+        
+        $stars = $reviews->pluck('star');
+        $avg_star = $stars->avg();
         
         $data=[
             'aquarium'=>$aquarium,
             'recommendations'=>$recommendations,
+            'images'=>$images,
+            'avg_star'=>$avg_star,
         ];
         
         $data += $this->counts($aquarium);
         
         
-        return view('aquariums.recommendations',$data,['image'=>$image]);
+        return view('aquariums.recommendations',$data,['images'=>$images]);
     }
     
     public function create($id){
@@ -149,12 +159,29 @@ class AquariaController extends Controller
         $images = $aquarium->images()->get();
         
         foreach($images as $image){
-            $image_id = $image->id;
+           $image_id = $image->id;
         }
         
         $image = Image::find($image_id);
         $image->delete();
         
         return back();
+    }
+    
+    /*public function delete_aquarium($id){
+        $aquarium = Aquarium::find($id);
+        $aquarium->delete();
+        
+        return redirect('/');
+    }*/
+    
+    public function ranking(){
+        $aquariums = Aquarium::all();
+        
+        foreach($aquariums as $aquarium){
+            $reviews = $aquarium->reviews()->get();
+            $stars = $reviews->pluck('star');
+            $avg_star = $stars->avg();
+        }
     }
 }

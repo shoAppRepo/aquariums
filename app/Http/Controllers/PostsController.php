@@ -87,7 +87,7 @@ class PostsController extends Controller
         $extension = $image->getClientOriginalExtension();
         $name = $image->getClientOriginalName();
         //リサイズしてエンコード
-        $imageResize = InterventionImage::make($image)->resize(200, null, function ($constraint) {
+        $imageResize = InterventionImage::make($image)->resize(400, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
         $imageEncode = $imageResize->encode($extension);
