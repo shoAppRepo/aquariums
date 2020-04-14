@@ -54,7 +54,7 @@
         </a>
 
         <a href="{{ route('aquariums.index',['id'=>7]) }}" class="btn-flat-border mt-4">
-            <i class="fa fa-chevron-right"></i>九州
+            <i class="fa fa-chevron-right"></i>九州・沖縄
         </a>
     </div>
 
