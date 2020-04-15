@@ -75,9 +75,7 @@ class AquariaController extends Controller
     
     //水族館の新規追加
     public function store(Request $request){
-        $this->validate($request, [
-            'content' => 'required|max:191',
-        ]);
+
         
         $aquarium = new Aquarium;
         

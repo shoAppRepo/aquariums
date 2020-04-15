@@ -3,13 +3,12 @@
 @section('content')
 <div class="auth">
 <div class="row">
-
 <div class="offset-sm-3 col-sm-6">
 {!! Form::model($aquarium, ['route' => ['aquariums.store']]) !!}
         
                 <div class="form-group">
                     {!! Form::label('area_id', '地域番号:') !!}
-                    {!! Form::select('area_id', [1,2,3,4,5,6,7], ['class' => 'form-control']) !!}
+                    {!! Form::select('area_id', [0,1,2,3,4,5,6,7], ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
@@ -43,8 +42,7 @@
                 </div>
         
                 {!! Form::submit('追加', ['class' => 'btn btn-primary']) !!}
-        
-            {!! Form::close() !!}
+{!! Form::close() !!}
 </div>
 </div>
 </div>
