@@ -8,6 +8,11 @@
 {!! Form::model($aquarium, ['route' => ['aquariums.store']]) !!}
         
                 <div class="form-group">
+                    {!! Form::label('area_id', '地域番号:') !!}
+                    {!! Form::select('area_id', [1,2,3,4,5,6,7], ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
                     {!! Form::label('name', '名称:') !!}
                     {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 </div>
@@ -19,10 +24,7 @@
                     {!! Form::label('admission', '料金:') !!}
                     {!! Form::text('admission', null, ['class' => 'form-control']) !!}
                 </div>
-                <div class="form-group">
-                    {!! Form::label('area_id', '地域番号:') !!}
-                    {!! Form::text('area_id', '1:北海道,2:東北,3:関東,4:中部,5:近畿,6:中国・四国,7:九州', ['class' => 'form-control']) !!}
-                </div>
+                
                 <div class="form-group">
                     {!! Form::label('address', '住所:') !!}
                     {!! Form::text('address', null, ['class' => 'form-control']) !!}
@@ -33,10 +35,10 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('show', 'ショー:') !!}
-                    {!! Form::text('show', null, ['class' => 'form-control']) !!}
+                    {!! Form::textarea('show', null, ['class' => 'form-control','rows' => '5']) !!}
                 </div><div class="form-group">
                     {!! Form::label('content', '紹介文:') !!}
-                    {!! Form::text('content', '191文字以下', ['class' => 'form-control','rows' => '5']) !!}
+                    {!! Form::textarea('content', null, ['class' => 'form-control','rows' => '5']) !!}
                     <!--入力フォームのサイズを変えたい-->
                 </div>
         
