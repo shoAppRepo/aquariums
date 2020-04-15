@@ -8,7 +8,7 @@
 <div class="row d-flex justify-content-between">
     <div class="card col-sm-5 mt-2">
         <div class="card-header">
-            <h3 class="card-title">{{ $aquarium->name }}</h3>
+            <h3 class="card-title">{{ $aquarium->name }}<span>{{ $avg_star }}</span></h3>
             @if($avg_star == 1)
             <div class="d-flex justify-content-end">
             <i class="fas fa-star"></i>
@@ -33,26 +33,24 @@
             <p>評価はまだありません</p>
             @endif
         </div>
-        <div class="card-body">
-            <div id="picture">
+        <div class="card-body mx-auto">
             @if(count($images))
-                <carousel
-                    :per-page="1"
-                >
+            <div id="picture">
+                <carousel>
                     @foreach ($images as $image)
                     <slide><span class="label"><img src="{{ $image->image_path }}"></span></slide>
                     @endforeach
                 </carousel>
-            @else
             </div>
-            <div class="mx-auto" style="width:20rem;height:20rem;background-color:#CCFFFF;text-align:center">
+            @else
+            <div style="width:20rem;height:20rem;background-color:#CCFFFF;text-align:center">
                 <p style="font-size:30px">No Image</p>
             </div>
             @endif
-            <p class="mt-3">{{ $aquarium->content }}</p>
+            <p>{{ $aquarium->content }}</p>
         </div>
     </div>
- </div>   
+    
     <div class="col-sm-4 mt-2">
         <table class="table table-bordered ">
             <tr>
@@ -106,8 +104,8 @@
         @endif
     </div>
 </div>
+</div>
+</div>
 
-</div>
-</div>
 
 @endsection

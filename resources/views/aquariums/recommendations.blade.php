@@ -4,7 +4,7 @@
 <div class="auth">
 <div class="container">
 <div class="row d-flex justify-content-between">
-    <div class="card col-md-5 mt-2">
+    <div class="card col-sm-5 mt-2">
         <div class="card-header">
             <h3 class="card-title">{{ $aquarium->name }}<span>{{ $avg_star }}</span></h3>
             @if($avg_star == 1)
@@ -31,7 +31,7 @@
             <p>評価はまだありません</p>
             @endif
         </div>
-        <div class="card-body">
+        <div class="card-body mx-auto">
             @if(count($images))
             <div id="picture">
                 <carousel>
@@ -49,7 +49,7 @@
         </div>
     </div>
     
-    <div class="col-md-4 mt-2">
+    <div class="col-sm-4 mt-2">
         <table class="table table-bordered ">
             <tr>
                 <td>営業時間</td>
