@@ -67,7 +67,7 @@
             </tr>
             <tr>
                 <td>URL</td>
-                <td>{{ $aquarium->url }}</td>
+                <td><a href="{{ $aquarium->url }}">{{ $aquarium->url }}</a></td>
             </tr>
             <tr>
                 <td>ショー</td>
